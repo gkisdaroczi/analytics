@@ -1,0 +1,20 @@
+OK. First things first.
+
+TASKS
+-----
+1. Find out what does "source data" mean and where can I found. :)
+help:
+https://developers.google.com/analytics/
+
+2. Possibilities of a new app based on data from Analytics
+help:
+https://developers.google.com/analytics/devguides/platform
+https://developers.google.com/analytics/devguides/integrate/
+https://developers.google.com/analytics/devguides/reporting/
+
+
+STEPS
+-----
+1. I need a Google API key (to connect the Analytics API) from Google Developer Console.
+DONE
+
