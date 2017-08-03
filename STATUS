@@ -1,20 +1,36 @@
-OK. First things first.
-
 TASKS
 -----
 1. Find out what does "source data" mean and where can I found. :)
-help:
-https://developers.google.com/analytics/
-
 2. Possibilities of a new app based on data from Analytics
-help:
-https://developers.google.com/analytics/devguides/platform
-https://developers.google.com/analytics/devguides/integrate/
-https://developers.google.com/analytics/devguides/reporting/
+	We have many options:
+		Service application
+			Java
+			Python
+			PHP
+		Installed application
+			Java
+			Python
+		Web application
+			PHP
+			Javascript
+
+	I chose PHP.
+
+
+HELPS
+-----
+	https://developers.google.com/analytics/devguides/reporting/
+	..
+	https://developers.google.com/analytics/devguides/reporting/metadata/v3/libraries
+	https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/web-php
+	https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-php
 
 
 STEPS
 -----
-1. I need a Google API key (to connect the Analytics API) from Google Developer Console.
+0. Create a new project
+1. Create a new Google API key in Google Developer Console
+2. Enable Analytics API for this project
+3. Create composer.json
+4. Create docker container
 DONE
-
