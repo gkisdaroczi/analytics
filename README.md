@@ -38,7 +38,6 @@ https://developers.google.com/analytics/devguides/reporting/core/v4/
 Google analytics Reporting API Javascript  
 https://developers.google.com/analytics/devguides/reporting/core/v4/basics
 
-
 Useful links
 ------------
 
@@ -48,3 +47,9 @@ https://developers.google.com/api-client-library/
 Google Analytics account tools  
 https://www.googleapis.com/oauth2/v1/tokeninfo?access_token={access_token}  
 https://ga-dev-tools.appspot.com/account-explorer/
+
+The dimensions and metrics explorer lists and describes all the dimensions and metrics available through the Core Reporting API.  
+https://developers.google.com/analytics/devguides/reporting/core/dimsmets
+
+Describe the limits and quotas of requesting the Management APIs and Reporting APIs.  
+https://developers.google.com/analytics/devguides/reporting/core/v4/limits-quotas
