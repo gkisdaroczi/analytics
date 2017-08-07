@@ -24,8 +24,10 @@ if (empty($_POST['view_id']) && empty($_SESSION['view_id']) && $view_id != -1) {
 if (!empty($_POST['view_id'])) {
     $_SESSION['view_id'] = $_POST['view_id'];
     $view_id = $_SESSION['view_id'];
-} elseif ($view_id == -1) {
+} elseif ($view_id == -1 && empty($_SESSION['view_id'])) {
     $view_id = '';
+} else {
+    $view_id = $_SESSION['view_id'];
 }
 
 define('VIEW_ID', $view_id);
