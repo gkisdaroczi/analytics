@@ -1,2 +1,2 @@
-web/client_secrets.json
-web/vendor
+web/app/client_secrets.json
+web/app/vendor

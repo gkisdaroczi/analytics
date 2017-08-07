@@ -1,26 +1,11 @@
 <?php
 
-session_start();
+define('APP', dirname(__DIR__) . '/app');
 
-if (!file_exists(__DIR__ . '/client_secrets.json')) {
-    die('Missing "client_secrets.json" file. Read about this in README.');
-}
-
-if (empty($_POST['view_id']) && empty($_SESSION['view_id'])) {
-    die('Missing view ID.');
-}
-
-if (!empty($_POST['view_id'])) {
-    $_SESSION['view_id'] = $_POST['view_id'];
-}
-
-define('VIEW_ID', $_SESSION['view_id']);
-
-// Load the Google API PHP Client Library.
-require_once __DIR__ . '/vendor/autoload.php';
+require_once APP . '/bootstrap.php';
 
 $client = new Google_Client();
-$client->setAuthConfig(__DIR__ . '/client_secrets.json');
+$client->setAuthConfig(APP . '/client_secrets.json');
 $client->addScope(Google_Service_Analytics::ANALYTICS_READONLY);
 
 /**
