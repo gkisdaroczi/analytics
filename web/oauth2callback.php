@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!file_exists(__DIR__ . '/client_secrets.json')) {
+    die('Missing "client_secrets.json" file. Read about this in README.');
+}
+
 // Load the Google API PHP Client Library.
 require_once __DIR__ . '/vendor/autoload.php';
 

@@ -2,11 +2,19 @@
 
 session_start();
 
-if (empty($_POST['view_id'])) {
+if (!file_exists(__DIR__ . '/client_secrets.json')) {
+    die('Missing "client_secrets.json" file. Read about this in README.');
+}
+
+if (empty($_POST['view_id']) && empty($_SESSION['view_id'])) {
     die('Missing view ID.');
 }
 
-define('VIEW_ID', $_POST['view_id']);
+if (!empty($_POST['view_id'])) {
+    $_SESSION['view_id'] = $_POST['view_id'];
+}
+
+define('VIEW_ID', $_SESSION['view_id']);
 
 // Load the Google API PHP Client Library.
 require_once __DIR__ . '/vendor/autoload.php';
@@ -14,28 +22,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 $client = new Google_Client();
 $client->setAuthConfig(__DIR__ . '/client_secrets.json');
 $client->addScope(Google_Service_Analytics::ANALYTICS_READONLY);
-
-
-// If the user has already authorized this app then get an access token
-// else redirect to ask the user to authorize access to Google Analytics.
-if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
-  // Set the access token on the client.
-  $client->setAccessToken($_SESSION['access_token']);
-
-  // Create an authorized analytics service object.
-  $analytics = new Google_Service_AnalyticsReporting($client);
-
-  // Call the Analytics Reporting API V4.
-  $response = getReport($analytics);
-
-  // Print the response.
-  printResults($response);
-
-} else {
-  $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php';
-  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
-}
-
 
 /**
  * Queries the Analytics Reporting API V4.
@@ -68,7 +54,6 @@ function getReport($analytics) {
   return $analytics->reports->batchGet( $body );
 }
 
-
 /**
  * Parses and prints the Analytics Reporting API V4 response.
  *
@@ -99,4 +84,30 @@ function printResults($reports) {
       }
     }
   }
+}
+
+try {
+    // If the user has already authorized this app then get an access token
+    // else redirect to ask the user to authorize access to Google Analytics.
+    if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+      // Set the access token on the client.
+      $client->setAccessToken($_SESSION['access_token']);
+
+      // Create an authorized analytics service object.
+      $analytics = new Google_Service_AnalyticsReporting($client);
+
+      // Call the Analytics Reporting API V4.
+      $response = getReport($analytics);
+
+      // Print the response.
+      printResults($response);
+
+    } else {
+      $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php';
+      header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+    }
+} catch (Google_Service_Exception $e) {
+    echo '<pre>';
+    print_r('Exception: ' . $e->getMessage());
+    echo '</pre>';
 }

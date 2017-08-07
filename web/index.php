@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+
+session_start();
+
+define('VIEW_ID', $_SESSION['view_id']);
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -8,9 +14,13 @@
     <div>
         <?php echo 'Hello'; ?>
 
+        <?php if (!file_exists(__DIR__ . '/client_secrets.json')) : ?>
+            Missing "client_secrets.json" file. Read about this in README.
+        <?php endif; ?>
+
         <form action="analytics.php" method="post">
             <label>View ID</label>
-            <input type="text" name="view_id" value="">
+            <input type="text" name="view_id" value="<?= VIEW_ID ?>">
             <button>OK</button>
         </form>
     </div>
