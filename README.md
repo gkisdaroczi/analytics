@@ -16,31 +16,24 @@ Google account (Console for manage projects and Analytics for data - in the same
 Usage
 -----
 
-You need a Google Account. You have to have or have access to an Analytics account, because you need a view id.
-
-If you don't know what you have to be looking for, you can use this tool to get the valid view id:
-
+You need a Google Account. You have to have or have access to an Analytics account, because you need a view id.  
+If you don't know what you have to be looking for, you can use this tool to get the valid view id:  
 https://ga-dev-tools.appspot.com/account-explorer/
 
-Create new a project or just modify an existing one, if you haven't enabled the Analytics Report API before.
-
-https://developers.google.com/api-client-library/php/auth/web-app
-
+Create new a project or just modify an existing one, if you haven't enabled the Analytics Report API before.  
+https://developers.google.com/api-client-library/php/auth/web-app  
 https://developers.google.com/identity/sign-in/web/devconsole-project
 
-
-Use the Google Analytics report API v4.
-
+Use the Google Analytics report API v4.  
 https://developers.google.com/analytics/devguides/reporting/core/v4/
 
 
 Useful links
 ------------
 
-Google API help
-
+Google API help  
 https://developers.google.com/api-client-library/
 
-Google Analytics account tool
-
+Google Analytics account tools  
+https://www.googleapis.com/oauth2/v1/tokeninfo?access_token={access_token}  
 https://ga-dev-tools.appspot.com/account-explorer/
