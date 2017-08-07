@@ -20,14 +20,11 @@ require_once APP . '/bootstrap.php';
 
         <div class="g-signin2" data-onsuccess="queryReports"></div>
 
-        <?php if (!file_exists(APP . '/client_secrets.json')) : ?>
-            Missing "client_secrets.json" file. Read about this in README.
-        <?php endif; ?>
-
         <form id="form" action="analytics.php" method="post">
             <select id="library-select">
-                <option value="analytics.php" selected>Google API PHP</option>
-                <option value="analytics-js.php">Google API Javascript</option>
+                <option value="analytics.php" selected>Analytics Webapp API PHP</option>
+                <option value="analytics-service.php" selected>Analytics Service API PHP</option>
+                <option value="analytics-js.php">Analytics API Javascript</option>
             </select>
             <label>View ID</label>
             <input type="text" name="view_id" value="<?= VIEW_ID ?>">

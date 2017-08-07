@@ -11,8 +11,9 @@ printResults($response);
 function initializeAnalytics() {
     // Create and configure a new client object.
     $client = new Google_Client();
-    $client->setAuthConfig(APP_TOKEN);
-    $client->addScope(Google_Service_Analytics::ANALYTICS_READONLY);
+    $client->setApplicationName("Hello Analytics Reporting");
+    $client->setAuthConfig(SERVICE_TOKEN);
+    $client->setScopes(['https://www.googleapis.com/auth/analytics.readonly']);
     $analytics = new Google_Service_AnalyticsReporting($client);
 
     return $analytics;

@@ -3,6 +3,10 @@
 
 Access and reports
 
+> With the Google Analytics Reporting API, you can:  
+> - Build custom dashboards to display Google Analytics data.
+> - Automate complex reporting tasks to save time.
+> - Integrate your Google Analytics data with other business applications.
 
 Requirements
 ------------
@@ -24,8 +28,15 @@ Create new a project or just modify an existing one, if you haven't enabled the 
 https://developers.google.com/api-client-library/php/auth/web-app  
 https://developers.google.com/identity/sign-in/web/devconsole-project
 
+For reporting create another credential: https://console.developers.google.com/iam-admin/serviceaccounts/  
+And add the service's email address to the users whose manage the Analytics account.  
+Help: https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-php
+
 Use the Google Analytics report API v4.  
 https://developers.google.com/analytics/devguides/reporting/core/v4/
+
+Google analytics Reporting API Javascript  
+https://developers.google.com/analytics/devguides/reporting/core/v4/basics
 
 
 Useful links

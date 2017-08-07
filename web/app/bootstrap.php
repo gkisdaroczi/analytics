@@ -1,14 +1,16 @@
 <?php
 
 defined('APP') or die();
+define('APP_TOKEN', APP . '/secrets/app-token.json');
+define('SERVICE_TOKEN', APP . '/secrets/service-token.json');
 
 session_start();
 
-if (!file_exists(APP . '/client_secrets.json')) {
-    die('Missing "client_secrets.json" file. Read about this in README.');
+if (!file_exists(APP_TOKEN)) {
+    die('Missing credential file. Read about this in README.');
 }
 
-$client_secrets = file_get_contents(APP . '/client_secrets.json');
+$client_secrets = file_get_contents(APP_TOKEN);
 $client_secrets = json_decode($client_secrets);
 
 if (json_last_error != JSON_ERROR_NONE) {
